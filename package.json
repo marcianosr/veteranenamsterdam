@@ -1,0 +1,16 @@
+{
+  "name": "veteranenamsterdam",
+  "version": "1.0.0",
+  "description": "veteranen amsterdam website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marciano Schildmeijer",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-browser-sync": "^2.1.1",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
