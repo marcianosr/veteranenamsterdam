@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../lib/font-awesome-less/fonts/fontawesome-webfont.eot?v=4.3.0');
-  src: url('../lib/font-awesome-less/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../lib/font-awesome-less/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../lib/font-awesome-less/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../lib/font-awesome-less/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../lib/font-awesome-less/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1798,108 +1798,4 @@
 }
 .fa-medium:before {
   content: "\f23a";
-}
-body {
-  font-family: "Raleway";
-}
-img.logo {
-  width: 200px;
-  margin-right: 20px;
-}
-h1,
-h2 {
-  font-family: "Sanchez";
-  color: #074E91;
-}
-h3 {
-  font-family: "Sanchez";
-  color: white;
-}
-.navbar {
-  margin-bottom: 0;
-}
-nav {
-  padding: 5px 0;
-  font-size: 18px;
-  font-family: "Sanchez";
-}
-nav .navbar-brand {
-  padding: 0;
-}
-nav ul {
-  padding: 35px 0;
-  text-align: right;
-}
-nav ul li {
-  display: inline-block;
-  margin-right: 30px;
-}
-nav ul li a {
-  color: black;
-  padding: 10px;
-}
-nav ul li a:hover {
-  text-decoration: none;
-  background: #074E91;
-  color: white;
-}
-section.main-content .image-container {
-  background-image: url("../assets/inloophuis.jpg");
-  background-size: cover;
-  background-position: center -150px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 400px;
-}
-section.landing {
-  font-size: 16px;
-}
-section.landing .text {
-  margin: 55px 0;
-}
-footer {
-  background: #064e9a;
-  width: 100%;
-  padding-top: 10px;
-  border-top: #3f7cec 4px solid;
-  text-shadow: 0 1.2px 0 rgba(0, 0, 0, 0.65);
-}
-footer .small-footer {
-  background: #073B73;
-  padding: 7px 0;
-  color: white;
-}
-footer .small-footer .social span {
-  font-size: 16px;
-  margin-left: 10px;
-}
-footer .footer-containers {
-  padding: 0;
-}
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-footer ul li {
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 4px;
-  color: white;
-}
-footer ul li a {
-  color: white;
-}
-footer ul li a:hover {
-  color: #9ecdff;
-  text-decoration: none;
-}
-.padding-v {
-  padding: 20px 0;
-}
-.content-center {
-  float: none;
-  margin: 0 auto;
-}
-.no-float {
-  float: none;
 }
