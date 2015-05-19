@@ -17,3 +17,7 @@ va.config([
 		})
 }]);
 
+
+va.controller('LandingController', []); 
+
+console.log('controllerLanding')

@@ -1,45 +1,21 @@
-@@include('html/partials/head.html')
-	<header ng-include="'html/partials/navigation.html'"> 
+<!DOCTYPE html>
+<html lang="en" ng-app="VA">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
 
-		
-	</header>
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+	<header ng-include="'html/partials/navigation.html'"></header>
 	
-	<section class="main-content">
-		<div class="image-container">
-			
-		</div>
-		
-		<div class="container">
-			<div class="row">
-	
-				<section class="landing col-xs-8 content-center">
-					<div class="text">
-						<h1>Welkom bij Stichting Veteranen Amsterdam</h1>
-						<p>De Stichting Veteranen Amsterdam (SVA) is een ontmoetingscentrum voor veteranen, hun partner en kinderen uit Amsterdam en omstreken. De stichting is gehuisvest in een oude pastorie dat de naam gekregen heeft van “de Veldpost”. De Veldpost is vrij toegankelijk voor iedere veteraan die de specifieke sfeer en inrichting aanspreekt.
-
-						</p>
-						<div class="col-xs-12 padding-v no-float">
-							<img class="img-responsive" src="assets/467547_312689345498061_1512454935_o.jpg" alt="">
-						</div>
-						
-						<p>De Stichting doet alles om de veteraan een sfeervolle en laagdrempelige omgeving binnen de Veldpost te bieden. Bij vele veteranen bestaat de behoefte om de kameraden van weleer te ontmoeten als blijk van verwantschap, het delen van herinneringen aan gezamenlijke ervaringen tijdens inzet in operationele missiegebieden.</p>
-					</div>
-					
-					<div class="text">
-						<h2>Wat biedt de stichting binnen de Veldpost nog meer</h2>
-
-						<p>Een huiskamer- en inloop voorziening. In de huiskamer is – naast gratis koffie en thee, TV, radio, bibliotheek met boeken en tijdschriften en computergames – specifieke informatie aanwezig in de vorm van brochures en folders met betrekking tot regelingen, sociale verbanden, en zorgvoorzieningen voor veteranen.
-						De organisatie van activiteiten waarbij veteranen en anderen elkaar kunnen ontmoeten en de organisatie van lotgenotencontact (reünies, vergaderingen e.d.).
-						Maatschappelijke dienstverlening aan alle veteranen. De gastheren, alle veteranenhelpers bieden een luisterend oor en kunnen algemene informatie, advies en ondersteuning geven aan veteranen en/of hun naasten.
-						Ruimte in de Veldpost voor lezingen, cursussen, informatiedagen, trainingen en sociale activiteiten..</p>
-					</div>
-
-
-				</section>
-			</div>
-		</div>
-
-	</section>
+	<section class="main-content" ng-view></section>
 <footer>
 		<div class="container">
 				<div class="row">
@@ -88,9 +64,11 @@
 			</div>
 	</footer>
 
+<script src="js/veteranenamsterdam.js"></script>
 
-<script type="text/javascript" src="lib/angular/angular.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
 </body>
 </html>
 	
