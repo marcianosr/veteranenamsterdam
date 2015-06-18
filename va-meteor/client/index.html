@@ -1,0 +1,24 @@
+
+<head>
+	<base href="/">
+</head>
+<body ng-app="VA" >
+
+<div class="container" ng-include="'partials/navigation.ng.html'"></div>
+
+<div class="flag-container">
+	<div class="red"></div>
+	<div class="white"></div>
+	<div class="blue"></div>
+</div>
+
+
+
+<main class="main-content" ui-view scroll-to-top></main>
+
+<footer ng-include="'partials/footer.ng.html'"></footer>
+
+<a ui-sref="/overons">over ons</a>
+
+
+</body>
