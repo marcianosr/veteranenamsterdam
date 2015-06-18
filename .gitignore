@@ -1,4 +1,10 @@
 node_modules/
-public/lib
-test/lib
+public/
+test/
 
+Gruntfile.js
+/bower.json
+package.json
+.bowerrc
+
+va-meteor/.meteor
