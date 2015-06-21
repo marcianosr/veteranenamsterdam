@@ -7,4 +7,4 @@ Gruntfile.js
 package.json
 .bowerrc
 
-va-meteor/.meteor
+va-meteor/
