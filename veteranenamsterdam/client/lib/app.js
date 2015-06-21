@@ -76,7 +76,15 @@ angular.module('VA',[
 				controller: 'ContactController',
 				templateUrl: 'client/views/ContactView.ng.html'
 
-			});
+			})
+			.state('/maak-bericht', { 
+
+				url: '/maak-bericht', 
+				controller: 'CreatePostController',
+				templateUrl: 'client/views/CreatePostView.ng.html'
+
+			})
+
 
 		// $locationProvider.html5Mode(true);
 }]).run(['$rootScope', function($rootScope) {
