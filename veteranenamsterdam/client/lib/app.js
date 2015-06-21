@@ -35,13 +35,13 @@ angular.module('VA',[
 				templateUrl: 'client/views/AboutView.ng.html'
 
 			})
-			.state('/blog', { 
+			// .state('/blog', { 
 
-				url: '/blog', 
-				controller: 'BlogController',
-				templateUrl: 'client/views/BlogView.ng.html'
+			// 	url: '/blog', 
+			// 	controller: 'BlogController',
+			// 	templateUrl: 'client/views/BlogView.ng.html'
 
-			})
+			// })
 			.state('/veteranen', { 
 
 				url: '/de-veldpost', 
