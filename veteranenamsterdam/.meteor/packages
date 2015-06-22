@@ -11,3 +11,4 @@ momentjs:moment
 twbs:bootstrap
 urigo:angular-ui-router
 less
+fortawesome:fontawesome

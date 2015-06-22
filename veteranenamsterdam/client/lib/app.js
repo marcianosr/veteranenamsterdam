@@ -49,9 +49,9 @@ angular.module('VA',[
 				templateUrl: 'client/views/VeteranenView.ng.html'
 
 			})
-			.state('/de-veldpost', { 
+			.state('/develdpost', { 
 
-				url: '/de-veldpost', 
+				url: '/develdpost', 
 				controller: 'VeldpostController',
 				templateUrl: 'client/views/VeldpostView.ng.html'
 

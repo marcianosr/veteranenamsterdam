@@ -151,7 +151,7 @@ main.main-content {
 	animation: fadeIn .4s;
 }
 
-section.landing { 
+section.landing {	 
 	
 	font-size: 16px;
 
@@ -263,12 +263,24 @@ footer {
 	border-top: rgb(63, 124, 236) 4px solid;
 	text-shadow: @lt-text-shadow;
 
+
+
 	.small-footer { 
 
 		background: #073B73;
 		padding:7px 0;
 		color:white;
+		a { 
+			color:white;
 
+			&:hover { 
+
+				color:rgb(158, 205, 255);
+				text-decoration: none;
+			}
+
+
+		}
 
 		.social { 
 
@@ -304,6 +316,7 @@ footer {
 					text-decoration: none;
 				} 
 
+			
 
 
 			}
