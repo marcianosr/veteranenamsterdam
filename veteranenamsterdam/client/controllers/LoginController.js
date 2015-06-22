@@ -36,7 +36,7 @@ angular.module('VA')
    		}
    		else { 
 
-   			console.log('push to datãbase! User created!')
+   			console.log('push to datãbase! User logged in!')
    		}
 
 
