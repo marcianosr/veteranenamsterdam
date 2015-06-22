@@ -20,14 +20,11 @@ angular.module('VA')
 
    			$scope.errors.push({'empty': 'De gebruikersnaam en/of wachtwoord is niet ingevuld.'})
    			$scope.formError = true;
-   			return $scope.formError;
+   			
    		}
 
    		// EMAIL CHECK
    		// NO USER FOUND
-   		// 
-   		
-   		$scope.formError = false;
    		
 
    		if($scope.formError) { 
@@ -36,7 +33,7 @@ angular.module('VA')
    		}
    		else { 
 
-   			console.log('push to datãbase! User logged in!')
+   			console.log('push to datãbase! User created!')
    		}
 
 
