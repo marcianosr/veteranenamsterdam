@@ -20,7 +20,7 @@
 
 // Users.insert({ 
 //   username: "Marciano",
-//   password: "kazooie",
+//   password: "-",
 //   firstname: "Marciano",
 //   lastname: "Schildmeijer",
 //   email: "marciano_schildmeijer@live.nl",
