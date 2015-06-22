@@ -84,6 +84,13 @@ angular.module('VA',[
 				templateUrl: 'client/views/CreatePostView.ng.html'
 
 			})
+			.state('/inloggen', { 
+
+				url: '/inloggen', 
+				controller: 'LoginController',
+				templateUrl: 'client/views/LoginView.ng.html'
+
+			})
 
 
 		// $locationProvider.html5Mode(true);
