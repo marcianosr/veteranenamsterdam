@@ -8,85 +8,85 @@ angular.module('VA',[
 
 
 ])
-// config func runs before anything is ready (before all services are ready) Providers are accessible. 
+// config func runs before anything is ready (before all services are ready) Providers are accessible.
 .config([
 
 	'$stateProvider',
 	'$locationProvider',
 
 
-	 function($stateProvider, $locationProvider) { 
+	 function($stateProvider, $locationProvider) {
 
 
 		console.log($stateProvider,  $locationProvider)
 
 		$stateProvider
-			.state('/', { 
+			.state('/', {
 
-				url: '/', 
+				url: '/',
 				controller: 'LandingController',
 				templateUrl: 'client/views/LandingView.ng.html'
-				
-			})
-			.state('/overons', { 
 
-				url: '/overons', 
+			})
+			.state('/overons', {
+
+				url: '/overons',
 				controller: 'AboutController',
 				templateUrl: 'client/views/AboutView.ng.html'
 
 			})
-			.state('/blog', { 
+			.state('/blog', {
 
-				url: '/blog', 
+				url: '/blog',
 				controller: 'BlogController',
 				templateUrl: 'client/views/BlogView.ng.html'
 
 			})
-			.state('/veteranen', { 
+			.state('/veteranen', {
 
-				url: '/de-veldpost', 
+				url: '/de-veldpost',
 				controller: 'VeteranenController',
 				templateUrl: 'client/views/VeteranenView.ng.html'
 
 			})
-			.state('/de-veldpost', { 
+			.state('/de-veldpost', {
 
-				url: '/de-veldpost', 
+				url: '/de-veldpost',
 				controller: 'VeldpostController',
 				templateUrl: 'client/views/VeldpostView.ng.html'
 
 			})
-			.state('/activiteiten', { 
+			.state('/activiteiten', {
 
-				url: '/activiteiten', 
+				url: '/activiteiten',
 				controller: 'ActivitiesController',
 				templateUrl: 'client/views/ActivitiesView.ng.html'
 
 			})
-			.state('/donaties', { 
+			.state('/donaties', {
 
-				url: '/donaties', 
+				url: '/donaties',
 				controller: 'DonationsController',
 				templateUrl: 'client/views/DonationsView.ng.html'
 
 			})
-			.state('/contact', { 
+			.state('/contact', {
 
-				url: '/contact', 
+				url: '/contact',
 				controller: 'ContactController',
 				templateUrl: 'client/views/ContactView.ng.html'
 
 			})
-			.state('/maak-bericht', { 
+			.state('/maak-bericht', {
 
-				url: '/maak-bericht', 
+				url: '/maak-bericht',
 				controller: 'CreatePostController',
 				templateUrl: 'client/views/CreatePostView.ng.html'
 
 			})
-			.state('/inloggen', { 
+			.state('/inloggen', {
 
-				url: '/inloggen', 
+				url: '/inloggen',
 				controller: 'LoginController',
 				templateUrl: 'client/views/LoginView.ng.html'
 
@@ -94,14 +94,24 @@ angular.module('VA',[
 
 
 		// $locationProvider.html5Mode(true);
-}]).run(['$rootScope', function($rootScope) {
+}]).run(['$rootScope', 'LoginService', function($rootScope, LoginService) {
 
 
 
 	console.log('runn angular app')
-}])
+
+
+
+
+	Deps.autorun(function() {
+
+		$rootScope.userId = LoginService.getLoginStatus();
+
+		console.log('logged or not ', $rootScope.userId)
+
+
+	})
+}]);
 
 Meteor.subscribe('posts');
-
-
-
+Meteor.subscribe('users');

@@ -1,14 +1,23 @@
 <div class="container">
 	<div class="row">
-		<section>
+		<section ng-if="!userId">
+
 			<h1>Login</h1>
+
+			<div class="errors" ng-if="errors" ng-repeat="error in errors">{{ error }}</div> 
 			<form> 
-				{{errors}}
+				
 				<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam">
 				<input type="password" class="form-control" name="password" placeholder="Wachtwoord">
-				<input type="submit" name="login" class="btn btn-primary">
+				<input type="submit" ng-click="submitForm()" name="login" class="btn btn-primary">
 			</form>
 			
+		</section>
+
+		<section ng-if="userId">
+
+			<h1>Je bent al ingelogd.</h1> 
+		
 		</section>
 	</div>
 </div>

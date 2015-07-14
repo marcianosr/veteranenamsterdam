@@ -18,15 +18,15 @@
 
 // console.log('postss')
 
-// Users.insert({ 
+// Users.insert({
 //   username: "Marciano",
 //   password: "-",
 //   firstname: "Marciano",
 //   lastname: "Schildmeijer",
-//   email: "marciano_schildmeijer@live.nl",
+//   email: "test@live.nl",
 //   role: "Beheerder",
 //   messages: 0,
 //   profile_image: "/",
-
-
+//
+//
 // });

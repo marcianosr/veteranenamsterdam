@@ -3,7 +3,13 @@ Meteor.publish('posts', function() {
 });
 
 
-// Meteor.publish('users', function() {
-//   return Users.find({ });
-// });
+Meteor.publish('users', function() {
 
+  return Meteor.users.find({  }, {
+    fields: {
+      'services': false,
+      '_id': false
+    }
+
+  });
+});
