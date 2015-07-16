@@ -11,7 +11,7 @@ angular.module('VA')
 
    $scope.empty = true;
 
-        //  Accounts.createUser({email: 'marciano_schildmeijer@live.nl', password : 'kazooie'}, function(err){
+        //  Accounts.createUser({email: 'marciano_schildmeijer@live.nl', password : '-'}, function(err){
         //   if (err) {
         //     // Inform the user that account creation failed
         //   } else {
@@ -32,25 +32,23 @@ angular.module('VA')
 						$scope.errors.push('Sorry, we hebben de zojuist ingetypte gebruiker niet kunnen vinden...');
 					break;
 					case "Match failed":
-
+						$scope.errors.push('De gebruikersnaam en/of wachtwoord is niet ingevuld.')
 					break;
 
 				}
 
-				if (user.username.length < 1 || user.password.length < 1) {
-					$scope.errors.push('De gebruikersnaam en/of wachtwoord is niet ingevuld.')
-					$scope.formError = true;
+				// if (user.username.length < 1 || user.password.length < 1) {
+					
+				// 	//reason = "Match failed";
+					
 
-				}
-
-
-
+				// }
 
 		}
 
    $scope.submitForm = function ( ) {
 
-         $scope.errors = []
+         $scope.errors = [];
 
 				var user = {
 
@@ -82,7 +80,7 @@ angular.module('VA')
                if (err) {
 
                   console.log(err)
-									$scope.validate(user, err.reason)
+				  $scope.validate(user, err.reason)
 
                }
                else {
@@ -91,18 +89,14 @@ angular.module('VA')
 
             });
 
-         // EMAIL CHECK
-         // NO USER FOUND
+         // if($scope.formError) {
 
+         //    pushArrayOnce($scope.errors)
+         // }
+         // else {
 
-         if($scope.formError) {
-
-            pushArrayOnce($scope.errors)
-         }
-         else {
-
-            console.log('push to datãbase! User created!')
-         }
+         //    console.log('push to datãbase! User created!')
+         // }
 
 
    }
