@@ -1,13 +1,18 @@
 angular.module('VA')
-.controller('LoginController', ['$rootScope', '$scope', '$state', 'LoginService', function($rootScope, $scope, $state, LoginService) {
+.controller('LoginController', ['$rootScope', '$location', '$scope', '$state', 'LoginService', function($rootScope, $location, $scope, $state, LoginService) {
 
 
    console.log('LoginController Init');
+
 
    $scope.formError = true;
 
    $rootScope.userId = LoginService.getLoginStatus();
    $scope.loggedIn = LoginService.getLoginStatus();
+
+
+
+ 
 
    $scope.empty = true;
 
@@ -25,8 +30,6 @@ angular.module('VA')
 					// console.log(Posts.find().fetch())
 		$scope.validate = function (user, reason) {
 
-				console.log(reason)
-
 				switch (reason) {
 					case "User not found":
 						$scope.errors.push('Sorry, we hebben de zojuist ingetypte gebruiker niet kunnen vinden...');
@@ -40,7 +43,7 @@ angular.module('VA')
 				// if (user.username.length < 1 || user.password.length < 1) {
 					
 				// 	//reason = "Match failed";
-					
+
 
 				// }
 
@@ -85,6 +88,7 @@ angular.module('VA')
                }
                else {
                   $rootScope.userId = Meteor.userId();
+                  $location.path('/');
                }
 
             });
