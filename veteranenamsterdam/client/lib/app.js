@@ -4,6 +4,7 @@ angular.module('VA',[
 
     'angular-meteor',
     'ui.router',
+    'ngFileUpload',
 
 
 
@@ -40,6 +41,13 @@ angular.module('VA',[
 				url: '/blog',
 				controller: 'BlogController',
 				templateUrl: 'client/views/BlogView.ng.html'
+
+			})
+			.state('/blog/:postId', {
+
+				url: '/blog/:postId',
+				controller: 'PostController',
+				templateUrl: 'client/views/PostView.ng.html'
 
 			})
 			.state('/veteranen', {
@@ -110,7 +118,10 @@ angular.module('VA',[
 		console.log('logged or not ', $rootScope.userId)
 
 
-	})
+	});
+
+
+
 }]);
 
 Meteor.subscribe('posts');

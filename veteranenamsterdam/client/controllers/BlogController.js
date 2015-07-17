@@ -5,9 +5,15 @@ angular.module('VA')
   console.log('BlogController Init');
 
 
-  $scope.posts = $meteor.collection(Posts); 
+  $scope.posts = $meteor.collection(function(){
 
-  console.log($scope.posts)
+  	console.log('get blog posts'); 
+
+  	return Posts.find({ }, { })
+  }); 
+
+   $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
+   console.log($scope.images)
 
   
 

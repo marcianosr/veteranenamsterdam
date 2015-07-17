@@ -1,4 +1,4 @@
-angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', 'Upload', function($rootScope, $scope, $location, Upload) {
 
 
 		$scope.errorForm = true;
@@ -13,6 +13,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 				console.log('succes')
 
 				post._id = Posts.insert(post);
+				$location.path('/blog')
 
 			}
 			else {
@@ -22,7 +23,6 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 			 
 		}; 
-
 
 		$scope.validate = function() { 
 
@@ -52,7 +52,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 				$scope.errors.push('Het intro veld is leeg.');
 
 			}
-			console.log($scope.errors.length)
+
 			if($scope.errors.length != 0) { 
 
 				$scope.errorForm = true;
@@ -71,6 +71,36 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		}
 
+		$scope.upload = function(files) { 
+
+			if (files && files.length) {
+	            for (var i = 0; i < files.length; i++) {
+	                var file = files[i];
+	                console.log(file)
+	                Upload.upload({
+	                    url: '/uploads',
+	                    // fields: {
+	                    //     'username': $scope.username
+	                    // },
+	                    file: files
+	                }).progress(function (evt) {
+	                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+	                    $scope.log = 'progress: ' + progressPercentage + '% ' +
+	                                evt.config.file.name + '\n' + $scope.log;
+	                }).success(function (data, status, headers, config) {
+	                    $timeout(function() {
+	                        $scope.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+	                    });
+	                });
+	            }
+	        }
+		}
 
 
+		
 }]);
+
+
+
+
+

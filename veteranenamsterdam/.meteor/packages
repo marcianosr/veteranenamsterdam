@@ -12,3 +12,8 @@ urigo:angular-ui-router
 less
 accounts-base
 accounts-password
+
+dbarrett:dropzonejs
+cfs:standard-packages
+cfs:filesystem
+danialfarid:ng-file-upload
