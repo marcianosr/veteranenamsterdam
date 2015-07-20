@@ -1,0 +1,32 @@
+<div class="container" ng-if="userId">
+	<div class="row">
+		<section class="create-post col-xs-6 col-xs-offset-3">
+			<h1>Maak bericht</h1>
+			<div ng-if="errors" class="alert alert-danger">
+				<strong>De volgende foutmelding(en) zijn opgetreden: </strong>
+
+				<ul ng-repeat="error in errors">
+					<li>{{error}}</li>
+				</ul>
+			</div>
+			<form>
+				<input name="title" class="form-control" type="text" placeholder="Titel">
+				<input name="intro" class="form-control" type="text" placeholder="Intro">
+				<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht"></textarea>
+    			<input type="submit" value="Submit" ng-click="createPost()" class="btn btn-primary" />
+
+			</form>
+			
+		<!-- 	<form action="" method="post" enctype="multipart/form-data">
+				<input type="file" name="file" />
+    			<input type="submit" value="Upload" ng-click="formSubmit()" class="btn btn-primary" />
+
+			</form> -->
+			   <input type="checkbox" ng-model="multiple">upload multiple file
+				 <!-- <div class="button btn btn-primary" ngf-select ngf-change="upload($files)">Upload on file change</div> -->
+				  <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true" accept="image/*">Select File</div>
+			
+
+		</section>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+.navbar {
+
+	margin-bottom: 0;
+
+}
+nav {
+
+	//background: red;
+	padding:5px 0;
+	font-size: 18px;
+	font-family: "Sanchez";
+	//font-weight: 400;
+
+	//text-transform: uppercase;
+
+
+
+	.navbar-brand {
+
+		padding:0;
+		margin-right: 30px;
+
+	}
+
+	ul {
+
+		padding:35px 0;
+
+
+
+		li {
+
+			display: inline-block;
+			// margin-right:30px;
+			position: relative;
+
+			ul {
+
+				position: absolute;
+				top:32px;
+				padding:0;
+				text-align: left;
+				// background-color: @blue-base;
+				min-width: 150px;
+				box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.32);
+				background: white;
+				display: none;
+
+
+				li {
+
+					display: block;
+					margin:0;
+
+					a {
+
+						width:100%;
+						padding: 10px;
+						display: inline-block;
+
+
+						&:hover {
+							background: @blue-base;
+							color:white;
+
+
+						}
+					}
+				}
+			}
+
+			&:hover ul {
+
+				display: block;
+
+
+			}
+
+			a {
+
+				color:black;
+				padding:10px;
+
+
+				&:hover {
+
+					text-decoration: none;
+					background: #074E91;
+					color: white;
+					text-shadow: @lt-text-shadow;
+
+
+				}
+			}
+		}
+	}
+
+}

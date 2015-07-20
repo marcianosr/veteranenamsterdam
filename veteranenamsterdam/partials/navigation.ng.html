@@ -1,6 +1,8 @@
-<nav class="navbar">
-	
-		<a href="/#/" class="navbar-brand">
+
+<nav class="navbar" ng-controller="NavigationController">
+		
+		<a href="" class="navbar-brand">
+
 			<img class="logo" src="assets/logo11-trans.png" alt="SVA">
 		</a>
 		<ul class="list-inline top-nav">
@@ -15,6 +17,13 @@
 			</li>
 			<li><a ui-sref="/activiteiten">activiteiten</a></li>
 			<li><a ui-sref="/contact">contact</a></li>
+			
+			
+			
+			<li ng-if="!userId"><a ui-sref="/inloggen">inloggen</a></li>
+			<li ng-if="userId" ng-click="logout()"><a >uitloggen</a></li>
+			
+
 		</ul>
 
 </nav>	

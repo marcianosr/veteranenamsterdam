@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<section class="login col-xs-6 col-xs-offset-3" ng-if="!userId">
+
+			<h1>Inloggen</h1>
+
+			<div class="alert alert-danger" ng-if="errors" ng-repeat="error in errors">{{ error }}</div> 
+			<form> 
+				<input type="text" class="form-control" name="username" placeholder="Gebruikersnaam">
+				<input type="password" class="form-control" name="password" placeholder="Wachtwoord">
+				<button type="submit" ng-click="submitForm()" name="login" class="btn btn-primary">Inloggen</button>
+			</form>
+			
+		</section>
+
+		<section ng-if="userId">
+
+			<h1>Je bent al ingelogd.</h1> 
+		
+		</section>
+	</div>
+</div>
