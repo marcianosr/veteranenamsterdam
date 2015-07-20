@@ -3,7 +3,7 @@
 	
 </div>
 
-<div class="container">
+<div class="container" ng-if="!isOn404">
 	<div class="row">
 	
 		<section class="landing col-xs-8">
@@ -33,7 +33,15 @@
 		
 		<div ng-include="'partials/sponsors.ng.html'"></div>
 
+
+
 		
 	</div>
 </div>
+
+<h1 ng-if="isOn404">Error 404</h1>
+
+
+
+
 

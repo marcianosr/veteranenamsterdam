@@ -4,6 +4,8 @@ angular.module('VA')
 
   console.log('NavigationController Init');
 
+
+
 	   $scope.$on('$stateChangeStart', function(){
 
 		 //  	var loggedIn = LoginService.getLoginStatus();

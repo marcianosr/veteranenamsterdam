@@ -4,7 +4,7 @@ angular.module('VA')
 	
   console.log('PostController Init');
 
-  var title = $stateParams;
+  var title = $stateParams.postId;
 
 
   console.log(title)
@@ -12,7 +12,7 @@ angular.module('VA')
 
   	console.log('get post'); 
 
-  	return Posts.find({}, {title: 'Zelda'})
+  	return Posts.find({title: title}, {})
   }); 
 
   console.log($scope.posts)

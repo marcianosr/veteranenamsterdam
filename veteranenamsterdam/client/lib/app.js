@@ -13,13 +13,15 @@ angular.module('VA',[
 .config([
 
 	'$stateProvider',
+	'$urlRouterProvider',
 	'$locationProvider',
 
 
-	 function($stateProvider, $locationProvider) {
+	 function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
-		console.log($stateProvider,  $locationProvider)
+		console.log($stateProvider)
+		console.log($urlRouterProvider)
 
 		$stateProvider
 			.state('/', {
@@ -99,15 +101,23 @@ angular.module('VA',[
 				templateUrl: 'client/views/LoginView.ng.html'
 
 			})
+			.state('/404', {
+
+				url: '/404',
+				controller: 'ErrorController',
+				templateUrl: 'client/views/ErrorView.ng.html'
+
+			})
+
+			$urlRouterProvider.otherwise('/404');
 
 
-		// $locationProvider.html5Mode(true);
+		 $locationProvider.html5Mode(true);
 }]).run(['$rootScope', 'LoginService', function($rootScope, LoginService) {
 
 
 
 	console.log('runn angular app')
-
 
 
 
