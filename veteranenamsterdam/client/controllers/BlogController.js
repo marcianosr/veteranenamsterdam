@@ -12,12 +12,25 @@ angular.module('VA')
   	return Posts.find({ }, { })
   }); 
 
-   $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
-   console.log($scope.images)
+   // $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
+   // console.log($scope.images)
 
-  
+  $scope.images = $meteor.collection(Images)
+  console.log($scope.images)
+
+
+
+
 
 }]);
 
+Template.imageView.helpers({
+  images: function () {
+
+
+  	return Images.find({_id: "xDJ3wuKSdHE5Frhhh"});
+    return Images.find(); // Where Images is an FS.Collection instance
+  }
+});
 
 

@@ -22,11 +22,15 @@
     			<input type="submit" value="Upload" ng-click="formSubmit()" class="btn btn-primary" />
 
 			</form> -->
-			   <input type="checkbox" ng-model="multiple">upload multiple file
+			   <!-- <input type="checkbox" ng-model="multiple">upload multiple file -->
 				 <!-- <div class="button btn btn-primary" ngf-select ngf-change="upload($files)">Upload on file change</div> -->
-				  <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true" accept="image/*">Select File</div>
+				  <!-- <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true" accept="image/*">Select File</div> -->
 			
+					<input type="file" name="image" ng-model="image" onchange="angular.element(this).scope().uploadFile(event)" class="myFileInput">
+					<input type="submit" ng-click="uploadFile()">
 
+
+			
 		</section>
 	</div>
 </div>

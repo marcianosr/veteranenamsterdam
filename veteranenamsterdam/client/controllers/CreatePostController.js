@@ -1,16 +1,36 @@
-angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', 'Upload', function($rootScope, $scope, $location, Upload) {
+angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', '$http', 'Upload', function($rootScope, $scope, $location, $http, Upload) {
 
 
 		$scope.errorForm = true;
+		$scope.uploadImage = false;
 
 		$scope.createPost = function() {
 
 			var post = $scope.validate(); 
 			console.log(post)
 
-		 
+		 	
 			if(post && !$scope.errorForm) { 
 				console.log('succes')
+
+
+
+				console.log($scope.uploadImage)
+
+
+
+				if($scope.uploadImage) { 
+					console.log(' upload a pic')
+
+					// post.image_id = 
+				} 
+				else { 
+					console.log('do not upload')
+				}
+
+
+
+
 
 				post._id = Posts.insert(post);
 				$location.path('/blog')
@@ -33,7 +53,8 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 		    	  intro: $('input[name="intro"]').val(),
 				  message: $('textarea').val(),
 				  date: new Date(),
-				  author: $rootScope.currentUser.emails[0].address
+				  author: $rootScope.currentUser.emails[0].address, 
+				  image_id: null,
 			};
 
 			if(post.title.length < 1) { 
@@ -94,12 +115,41 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 	                });
 	            }
 	        }
-		}
+	}
+
+
+	$scope.uploadFile = function(event) { 
+		// console.log(FS)
+		// console.log(event)
+
+		// var file = event.target.files; 
+
+		 // console.log(event.target.files.length)
+		// if(event == undefined) 
+		// { 
+		// 	$scope.upload = false;
+		// 	return false
+		// }
+			console.log('reach meee')
+			FS.Utility.eachFile(event, function(file) {
+	      		Images.insert(file, function (err, fileObj) {
+		        	// Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+
+		        	console.log('insert')
+		        	console.log(err)
+		        	console.log(fileObj)
+		     	});
+	     	 });
+
+			$scope.uploadImage = true;
+
+
+	}
+
 
 
 		
 }]);
-
 
 
 

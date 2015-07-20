@@ -53,14 +53,14 @@ angular.module('VA',[
 				templateUrl: 'client/views/PostView.ng.html'
 
 			})
-			.state('/veteranen', {
+			// .state('/veteranen', {
 
 
-				url: '/de-veldpost',
-				controller: 'VeteranenController',
-				templateUrl: 'client/views/VeteranenView.ng.html'
+			// 	url: '/de-veldpost',
+			// 	controller: 'VeteranenController',
+			// 	templateUrl: 'client/views/VeteranenView.ng.html'
 
-			})
+			// })
 			.state('/de-veldpost', {
 
 				url: '/de-veldpost',
@@ -96,6 +96,13 @@ angular.module('VA',[
 				templateUrl: 'client/views/CreatePostView.ng.html'
 
 			})
+			.state('/upload', {
+
+				url: '/upload',
+				controller: 'UploadController',
+				template: '<p> upload </p>'
+
+			})
 			.state('/inloggen', {
 
 				url: '/inloggen',
@@ -121,8 +128,8 @@ angular.module('VA',[
 
 	console.log('runn angular app')
 
-
-
+	var fd = new FormData();
+	console.log(fd)
 	Deps.autorun(function() {
 
 		$rootScope.userId = LoginService.getLoginStatus();
@@ -134,7 +141,12 @@ angular.module('VA',[
 
 
 
+
+
 }]);
 
 Meteor.subscribe('posts');
 Meteor.subscribe('users');
+Meteor.subscribe('images');
+
+
