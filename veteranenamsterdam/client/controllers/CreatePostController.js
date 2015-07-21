@@ -1,4 +1,4 @@
-angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', '$http', 'Upload', function($rootScope, $scope, $location, $http, Upload) {
+angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope', '$location', '$http', function($rootScope, $scope, $location, $http) {
 
 
 		$scope.errorForm = true;
@@ -20,6 +20,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 				if($scope.uploadImage) {
 					console.log(' upload a pic')
 					$scope.post.image_id = $scope.image_id;
+				
 				}
 				else {
 					console.log('do not upload')
@@ -88,19 +89,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 
 	$scope.uploadFile = function(event) {
-		// console.log(FS)
-		// console.log(event)
 
-		// var file = event.target.files;
-
-		 // console.log(event.target.files.length)
-		// if(event == undefined)
-		// {
-		// 	$scope.upload = false;
-		// 	return false
-		// }
-
-			console.log('reach meee')
 			FS.Utility.eachFile(event, function(file) {
 	      		Images.insert(file, function (err, fileObj) {
 		        	// Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
@@ -109,14 +98,27 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 							console.log(err)
 		        	console.log(fileObj)
 		        	console.log(event.target.files)
+		        	console.log(fileObj.url({store:"images"}));
+		        	console.log(new FS.File(fileObj).url({store:"images"}));
 
-
-							$scope.image_id = fileObj._id;
+					$scope.image_id = fileObj._id;
+	
+							
 		     	});
-	     	 });
+	     	});
 
 			$scope.uploadImage = true;
-			// $scope.post.image_id = event.target.files[0]._id;
+	}
+
+	$scope.deleteFile = function() { 
+
+		if($scope.uploadImage) { 
+
+			Images.remove({ _id: $scope.image_id })
+			$scope.uploadImage = false;
+
+		}
+
 	}
 
 }]);

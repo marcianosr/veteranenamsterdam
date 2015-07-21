@@ -53,6 +53,13 @@ angular.module('VA',[
 				templateUrl: 'client/views/PostView.ng.html'
 
 			})
+			.state('/blog/:postId/edit', {
+
+				url: '/blog/:postId/edit',
+				controller: 'EditPostController',
+				templateUrl: 'client/views/CreatePostView.ng.html'
+
+			})
 			// .state('/veteranen', {
 
 
@@ -128,8 +135,6 @@ angular.module('VA',[
 
 	console.log('runn angular app')
 
-	var fd = new FormData();
-	console.log(fd)
 	Deps.autorun(function() {
 
 		$rootScope.userId = LoginService.getLoginStatus();
