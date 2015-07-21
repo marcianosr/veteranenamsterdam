@@ -15,6 +15,3 @@ accounts-base
 accounts-password
 cfs:standard-packages
 cfs:filesystem
-danialfarid:ng-file-upload
-tomi:upload-jquery
-tomi:upload-server

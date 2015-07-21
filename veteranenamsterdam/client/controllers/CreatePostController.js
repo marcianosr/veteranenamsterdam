@@ -86,8 +86,6 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		}
 
-
-
 	$scope.uploadFile = function(event) {
 
 			FS.Utility.eachFile(event, function(file) {
@@ -102,7 +100,6 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 		        	console.log(new FS.File(fileObj).url({store:"images"}));
 
 					$scope.image_id = fileObj._id;
-	
 							
 		     	});
 	     	});
@@ -123,28 +120,3 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 }]);
 
-
-// $scope.upload = function(files) {
-//
-// 	if (files && files.length) {
-// 					for (var i = 0; i < files.length; i++) {
-// 							var file = files[i];
-// 							console.log(file)
-// 							Upload.upload({
-// 									url: '/uploads',
-// 									// fields: {
-// 									//     'username': $scope.username
-// 									// },
-// 									file: files
-// 							}).progress(function (evt) {
-// 									var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-// 									$scope.log = 'progress: ' + progressPercentage + '% ' +
-// 															evt.config.file.name + '\n' + $scope.log;
-// 							}).success(function (data, status, headers, config) {
-// 									$timeout(function() {
-// 											$scope.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
-// 									});
-// 							});
-// 					}
-// 			}
-// }
