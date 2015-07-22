@@ -21,7 +21,7 @@ angular.module('VA')
 
   $scope.editPost = function() {
 
-      alert('edit')
+      // Posts.update()
 
   }
    // $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
