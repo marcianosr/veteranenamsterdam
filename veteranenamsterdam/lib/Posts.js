@@ -8,9 +8,9 @@ Posts.allow({
 		It's like the fillable array in PHP.
     */
 
-    if(userId && _.contains(_.keys(doc), 'title', 'intro', 'message')){ 
+    if(userId && _.contains(_.keys(doc), 'title', 'intro', 'message', 'image_id')){ 
 
-    	return _.without(_.keys(doc), 'title', 'intro', 'message', 'date', 'author').length === 0;
+    	return _.without(_.keys(doc), 'title', 'intro', 'message', 'date', 'author', 'image_id').length === 0;
     }
     else {
 
@@ -19,8 +19,15 @@ Posts.allow({
   },
 
   update: function(userId, doc) {
-    // only allow posting if you are logged in
-    return !! userId;
+  		return !! userId
+ 	// if(userId && _.contains(_.keys(doc), 'title', 'intro', 'message')){ 
+
+  //   	return _.without(_.keys(doc), 'title', 'intro', 'message', 'date', 'author').length === 0;
+  //   }
+  //   else {
+
+  //   	return false;
+  //   }
   }
 });
 

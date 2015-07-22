@@ -1,8 +1,9 @@
 angular.module('VA')
-.controller('PostController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
+.controller('PostController', ['$scope', '$meteor', '$stateParams', '$sce', function($scope, $meteor, $stateParams, $sce) {
 
 	
   console.log('PostController Init');
+  console.log($sce);
 
   var title = $stateParams.postId;
 

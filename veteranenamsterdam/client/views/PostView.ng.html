@@ -22,6 +22,7 @@
 				<article class="post col-xs-8">
 					<h1><a href="/blog/{{post.title}}">{{ post.title }}</a></h1>
 					<p>{{ post.intro }}</p>
+					<div ng-bind-html="post.message">{{ post.message }}</div>
 					<div class="col-xs-8 padding-v margin-r-20">
 						<!-- <img class="img-responsive" src="assets/oldfriends.jpg" alt=""> -->
 					</div>

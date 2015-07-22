@@ -4,6 +4,7 @@ angular.module('VA',[
 
     'angular-meteor',
     'ui.router',
+    'ngSanitize'
     
 
 
