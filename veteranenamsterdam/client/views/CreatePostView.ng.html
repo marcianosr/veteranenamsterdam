@@ -15,7 +15,7 @@
 				<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht"></textarea>
 				<button class="btn btn-primary" ng-click="createTextArea()">Nieuwe Alinea</button>
 
-				<div ng-repeat="t in textareaCustom track by $index" class="customTextField{{$index}}">
+				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}">
 			<!-- 		{{'index: ' +$index}} -->
 					{{t}}
 					<input type="text">
