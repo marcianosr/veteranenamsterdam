@@ -1,11 +1,30 @@
+ImageExtNotAllowed = "";
+
 Images = new FS.Collection("images", {
-  stores: [new FS.Store.FileSystem("images", {path: "~/uploads/"})]
+  stores: [new FS.Store.FileSystem("images", {path: "~/uploads/"})],
+  filter: {
+    maxSize: 20, // in bytes
+    allow: {
+      contentTypes: ['image/*'],
+      extensions: ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']
+    },
+
+    onInvalid: function (message) {
+
+      ImageExtNotAllowed = "WRONG_EXTENSION";
+
+      // TO FIX: Show detailed errors
+      
+
+    }
+  }
+  
 });
 
 // Images.deny({
 //  insert: function(){
 //  return false;
-//  },
+//  },s
 //  update: function(){
 //  return false;
 //  },

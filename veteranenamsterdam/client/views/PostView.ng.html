@@ -22,9 +22,12 @@
 				<article class="post col-xs-8">
 					<h1><a href="/blog/{{post.title}}">{{ post.title }}</a></h1>
 					<p>{{ post.intro }}</p>
-					<div ng-bind-html="post.message">{{ post.message }}</div>
+					<p ng-repeat="message in post.message track by $index" ng-bind-html="message">
+						{{ message }}
+					</p>
 					<div class="col-xs-8 padding-v margin-r-20">
 						<!-- <img class="img-responsive" src="assets/oldfriends.jpg" alt=""> -->
+						<img src="/cfs/files/images/{{post.image_id}}/images?store=images" alt="">
 					</div>
 				</article>
 

@@ -3,6 +3,9 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		$scope.errorForm = true;
 		$scope.uploadImage = false;
+		$scope.textareaCustom = [];
+		$scope.counter = 0; 
+
 		$scope.post = {};
 		
 		$scope.bbcode = {
@@ -28,7 +31,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 			if(post && !$scope.errorForm) {
 				console.log('succes')
 
-				$sce.trustAsHtml($scope.post.message)
+				//$sce.trustAsHtml($scope.post.message)
 
 
 
@@ -62,26 +65,7 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 		   	$scope.post = {
 		    	  title: $('input[name="title"]').val(),
 		    	  intro: $('input[name="intro"]').val(),
-				  message: $('textarea').val().replace($scope.bbcode.bold, $scope.html.bold)
-				  							  .replace($scope.bbcode.italic, $scope.html.italic)
-				  							  .replace($scope.bbcode.linebreak, function(a, b, p){ 
-
-				  							  		// console.log(a)
-				  							  		// console.log(b)
-				  							  		// console.log(c)
-
-				  							  		var paragraphs = p.split("\n");
-
-				  							  		console.log(paragraphs)
-
-				  							  		_.each(paragraphs, function(paragraph) { 
-
-				  							  			console.log(paragraph)
-
-				  							  		});
-
-				  							  }),
-
+				  message: $scope.checkParagraphs(),
 				  date: new Date(),
 				  author: $rootScope.currentUser.emails[0].address,
 
@@ -89,6 +73,10 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 			console.log($scope.post.message)
 
+			if(ImageExtNotAllowed === "WRONG_EXTENSION") {
+				$scope.errors.push('De geüploade afbeelding heeft geen geldige extensie. Alleen .JPG, .JPEG of .PNG zijn toegestaan.');
+
+			}
 
 			if($scope.post.title.length < 1) {
 
@@ -101,14 +89,13 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 			}
 
+
+
 			if($scope.post.intro.length < 1) {
 
 				$scope.errors.push('Het intro veld is leeg.');
 
 			}
-
-
-
 
 			if($scope.errors.length != 0) {
 
@@ -157,6 +144,46 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 		}
 
 	}
+
+	$scope.checkParagraphs = function() { 
+
+		var paragraphs = [];
+
+		_.each($('textarea'), function(t){
+
+			if(t.value) {
+				paragraphs.push(t.value)
+			}
+
+		});
+		return paragraphs;
+
+	}
+
+	$scope.createTextArea = function () { 
+
+		$scope.counter++;
+		$scope.textareaCustom.push('textarea' +$scope.counter);
+	}
+
+	$scope.deleteTextArea = function(index) { 
+
+		console.log(index)
+		// var i = $scope.textareaCustom.splice(index);
+		// console.log(i)
+
+
+		//$('div').remove('.customTextField' + index);
+
+		$scope.textareaCustom.splice(index, 1);
+
+		// $('div').find($('textarea')).closest('button').remove();
+
+		// $($(this)).find($('textarea')).css('background', 'red')
+	
+	}
+
+
 
 }]);
 

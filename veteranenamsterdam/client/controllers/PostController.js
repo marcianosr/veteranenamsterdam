@@ -15,6 +15,7 @@ angular.module('VA')
   	return Posts.find({title: title}, {})
   }); 
 
+  console.log($scope.posts)
 }]);
 
 
