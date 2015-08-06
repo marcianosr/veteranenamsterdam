@@ -2,6 +2,8 @@ angular.module('VA')
 .controller('EditPostController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
 
   $scope.editPost = true;
+  $scope.textareaCustom = [];
+  $scope.counter = 0; 
 	
   console.log('EditPostController Init');
 
@@ -23,15 +25,15 @@ angular.module('VA')
   console.log($scope.posts)
 
 
-  _.each($scope.posts.message, function(message){
-      var last = $('textarea').last();
+  // _.each($scope.posts.message, function(message){
+  //     var last = $('textarea').last();
 
-      last.after(function(){ 
+  //     last.after(function(){ 
 
-        return '<p>'+ message +'</p>';
-      });
+  //       return '<p>'+ message +'</p>';
+  //     });
 
-  })
+  // })
 
 
   $scope.editPost = function() {
@@ -67,10 +69,6 @@ angular.module('VA')
 
   $scope.checkParagraphs = function() { 
 
-
-
-    
-
     var paragraphs = [];
 
     _.each($('textarea'), function(t){
@@ -86,15 +84,26 @@ angular.module('VA')
 
   $scope.createTextArea = function () { 
 
-      var last = $('textarea').last();
-
-      last.after(function(){ 
-
-        return '<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht"></textarea>';
-      });
-
+    $scope.counter++;
+    $scope.textareaCustom.push('textarea' +$scope.counter);
   }
 
+  $scope.deleteTextArea = function(index) { 
+
+    console.log(index)
+    // var i = $scope.textareaCustom.splice(index);
+    // console.log(i)
+
+
+    //$('div').remove('.customTextField' + index);
+
+    $scope.textareaCustom.splice(index, 1);
+
+    // $('div').find($('textarea')).closest('button').remove();
+
+    // $($(this)).find($('textarea')).css('background', 'red')
+  
+  }
   
 
 }]);

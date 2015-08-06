@@ -18,7 +18,8 @@
 				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}">
 			<!-- 		{{'index: ' +$index}} -->
 					{{t}}
-					<input type="text">
+					<textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
+					
 					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
 				</div>
 
@@ -62,12 +63,20 @@
 				<input name="title" class="form-control" type="text" placeholder="Titel" value="{{posts.title}}">
 				<input name="intro" class="form-control" type="text" placeholder="Intro" value="{{posts.intro}}">
 
-				<div ng-repeat="message in posts.message track by $index">
-					<button class="btn btn-danger" ng-click="deleteTextArea(this)">Verwijder paragraaf</button>
+				<div ng-repeat="message in posts.message" class="{{$index}}">
+					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
 					<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
 				</div>
-    			<input type="submit" value="Submit" ng-click="editPost()" class="btn btn-primary" />
 				<button class="btn btn-primary" ng-click="createTextArea()">Nieuwe Alinea</button>
+				
+				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}">
+			<!-- 		{{'index: ' +$index}} -->
+					{{t}}
+					<textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
+					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
+				</div>
+
+    			<input type="submit" value="Submit" ng-click="editPost()" class="btn btn-primary" />
 
 
 			</form>
