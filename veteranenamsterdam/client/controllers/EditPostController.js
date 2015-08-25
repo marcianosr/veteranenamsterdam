@@ -1,8 +1,10 @@
 angular.module('VA')
-.controller('EditPostController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
+.controller('EditPostController', ['$scope', '$meteor', '$stateParams', '$location', function($scope, $meteor, $stateParams, $location) {
 
   $scope.editPost = true;
   $scope.textareaCustom = [];
+  $scope.paragraphs = [];
+
   $scope.counter = 0; 
 	
   console.log('EditPostController Init');
@@ -49,6 +51,8 @@ angular.module('VA')
 
       Posts.update({ _id: $scope.posts._id }, { $set: { title: $scope.post.title, intro: $scope.post.intro, message: $scope.post.message, image_id: $scope.image_id } } )
 
+      $location.path('/blog')
+
   }
    $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
    console.log($scope.images)
@@ -67,37 +71,64 @@ angular.module('VA')
       $scope.uploadImage = true;
   }
 
+  // $scope.getPosts = function () { 
+
+  //     _.each($scope.posts.message, function(value){ 
+  //         console.log('post: ' + value)
+
+  //     })
+  // }
+
+  // $scope.getPosts();
+
   $scope.checkParagraphs = function() { 
 
-    var paragraphs = [];
 
     _.each($('textarea'), function(t){
 
       if(t.value) {
-        paragraphs.push(t.value)
+        $scope.paragraphs.push(t.value)
       }
 
     });
-    return paragraphs;
+
+    return $scope.paragraphs;
 
   }
 
+
+
   $scope.createTextArea = function () { 
 
+   
     $scope.counter++;
-    $scope.textareaCustom.push('textarea' +$scope.counter);
+    $scope.textareaCustom.push('textarea' + $scope.counter)
+
+    // $scope.textareaCustom.push('textarea' +$scope.counter);
   }
 
   $scope.deleteTextArea = function(index) { 
 
-    console.log(index)
     // var i = $scope.textareaCustom.splice(index);
     // console.log(i)
 
+    console.log($scope.posts.message.length)
+    if($scope.textareaCustom.length > 0) { 
+
+        //index = index + $scope.posts.message.length;
+        $scope.textareaCustom.splice(index, 1); 
+        console.log($scope.textareaCustom)
+
+
+    }
+
+    console.log('index' + index)
 
     //$('div').remove('.customTextField' + index);
 
-    $scope.textareaCustom.splice(index, 1);
+    $scope.posts.message.splice(index, 1); 
+
+    // $scope.paragraphs.splice(index, 1);
 
     // $('div').find($('textarea')).closest('button').remove();
 

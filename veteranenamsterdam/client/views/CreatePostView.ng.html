@@ -64,7 +64,7 @@
 				<input name="intro" class="form-control" type="text" placeholder="Intro" value="{{posts.intro}}">
 
 				<div ng-repeat="message in posts.message" class="{{$index}}">
-					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
+					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf {{ message }} </button>
 					<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
 				</div>
 				<button class="btn btn-primary" ng-click="createTextArea()">Nieuwe Alinea</button>
@@ -73,7 +73,7 @@
 			<!-- 		{{'index: ' +$index}} -->
 					{{t}}
 					<textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
-					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
+					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf </button>
 				</div>
 
     			<input type="submit" value="Submit" ng-click="editPost()" class="btn btn-primary" />
