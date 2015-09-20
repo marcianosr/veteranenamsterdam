@@ -5,7 +5,7 @@ angular.module('VA',[
     'angular-meteor',
     'ui.router',
     'ngSanitize'
-    
+
 
 
 
@@ -151,8 +151,6 @@ angular.module('VA',[
 
 }]);
 
-Meteor.subscribe('posts');
+
 Meteor.subscribe('users');
 Meteor.subscribe('images');
-
-

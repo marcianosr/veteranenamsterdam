@@ -1,22 +1,39 @@
 angular.module('VA')
-.controller('PostController', ['$scope', '$meteor', '$stateParams', '$sce', function($scope, $meteor, $stateParams, $sce) {
+.controller('PostController', ['$scope', '$meteor', '$stateParams', '$sce', 'PostService', function($scope, $meteor, $stateParams, $sce, PostService) {
 
-	
+
   console.log('PostController Init');
   console.log($sce);
 
   var title = $stateParams.postId;
 
+	$scope.posts = PostService.getAllPosts().then(function(posts) {
 
-  $scope.posts = $meteor.collection(function(){
+		angular.forEach(posts, function(key, value){
 
-  	console.log('get post'); 
 
-  	return Posts.find({title: title}, {})
-  }); 
+			if (title === key.title) {
+					$scope.post = key;
+					$scope.message = $sce.trustAsHtml($scope.post.message);
 
-  console.log($scope.posts)
+					console.log($scope.post)
+			}
+
+		});
+
+
+	});
+	// $meteor.subscribe('posts').then(function(res, err){
+	//
+	// 		console.log(res)
+	// })
+  // $scope.posts = $meteor.collection(function(){
+	//
+  // 	console.log('get post');
+	//
+  // 	return Posts.find({title: title}, {})
+  // });
+
+
+
 }]);
-
-
-

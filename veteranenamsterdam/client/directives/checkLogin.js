@@ -1,4 +1,4 @@
-angular.module('VA').directive('checkLogin', ['$rootScope', '$location', function($rootScope, $location) { 
+angular.module('VA').directive('checkLogin', ['$rootScope', '$location', function($rootScope, $location) {
 
 
    		   $rootScope.$on('$stateChangeStart', function(){
@@ -8,7 +8,7 @@ angular.module('VA').directive('checkLogin', ['$rootScope', '$location', functio
 					   return $location.path('/');
    				}
 
-   				if (!$rootScope.userId && $location.path().indexOf('/maak-bericht') !== -1) { 
+   				if (!$rootScope.userId && $location.path().indexOf('/maak-bericht') !== -1) {
 
                   console.warn('Not allowed to reach this pgage' )
    					return $location.path('/inloggen');
@@ -18,7 +18,7 @@ angular.module('VA').directive('checkLogin', ['$rootScope', '$location', functio
 
 	  		});
 
-
+        
 		 return {};
-   	
+
 }]);

@@ -9,24 +9,29 @@
 					<li>{{error}}</li>
 				</ul>
 			</div>
-			<form>
+			<!-- <form>
 				<input name="title" class="form-control" type="text" placeholder="Titel">
 				<input name="intro" class="form-control" type="text" placeholder="Intro">
 				<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht"></textarea>
 				<button class="btn btn-primary" ng-click="createTextArea()">Nieuwe Alinea</button>
 
-				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}">
+				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}"> -->
 			<!-- 		{{'index: ' +$index}} -->
-					{{t}}
+					<!-- {{t}}
 					<textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
-					
+
 					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf</button>
 				</div>
 
 
     			<input type="submit" value="Submit" ng-click="createPost()" class="btn btn-primary" />
 
-			</form>
+			</form> -->
+			<input name="title" class="form-control" type="text" placeholder="Titel">
+			<input name="intro" class="form-control" type="text" placeholder="Intro">
+			<div id="summernote">Hello Summernote</div>
+			<input type="submit" value="Submit" ng-click="createPost()" class="btn btn-primary" />
+
 
 
 		<!-- 	<form action="" method="post" enctype="multipart/form-data">
@@ -37,10 +42,10 @@
 			   <!-- <input type="checkbox" ng-model="multiple">upload multiple file -->
 				 <!-- <div class="button btn btn-primary" ngf-select ngf-change="upload($files)">Upload on file change</div> -->
 				  <!-- <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true" accept="image/*">Select File</div> -->
-	
 
-					<input type="file" name="image" ng-model="image" onchange="angular.element(this).scope().uploadFile(event)" class="imageInput" check-file-upload-state>
-					<button class="btn btn-danger deleteFile" ng-click="deleteFile()" disabled>delete</button>
+
+					<!-- <input type="file" name="image" ng-model="image" onchange="angular.element(this).scope().uploadFile(event)" class="imageInput" check-file-upload-state>
+					<button class="btn btn-danger deleteFile" ng-click="deleteFile()" disabled>delete</button> -->
 
 
 
@@ -57,26 +62,27 @@
 				</ul>
 			</div>
 
-			{{posts}}
 			<form>
 
-				<input name="title" class="form-control" type="text" placeholder="Titel" value="{{posts.title}}">
-				<input name="intro" class="form-control" type="text" placeholder="Intro" value="{{posts.intro}}">
+				<input name="title" class="form-control" type="text" placeholder="Titel" value="{{post.title}}">
+				<input name="intro" class="form-control" type="text" placeholder="Intro" value="{{post.intro}}">
+				<div id="summernote"></div>
+				<input type="submit"  value="Submit" ng-click="editPost()" class="btn btn-primary" />
 
-				<div ng-repeat="message in posts.message" class="{{$index}}">
+				<!-- <div ng-repeat="message in posts.message" class="{{$index}}">
 					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf {{ message }} </button>
 					<textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
 				</div>
 				<button class="btn btn-primary" ng-click="createTextArea()">Nieuwe Alinea</button>
-				
-				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}">
+
+				<div ng-repeat="t in textareaCustom" class="customTextField{{$index}}"> -->
 			<!-- 		{{'index: ' +$index}} -->
-					{{t}}
-					<textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
+
+					<!-- <textarea name="message" class="form-control" cols="30" rows="10" placeholder="Bericht">{{message}}</textarea>
 					<button class="btn btn-danger" ng-click="deleteTextArea($index)">Verwijder paragraaf </button>
 				</div>
 
-    			<input type="submit" value="Submit" ng-click="editPost()" class="btn btn-primary" />
+    			<input type="submit" value="Submit" ng-click="editPost()" class="btn btn-primary" /> -->
 
 
 			</form>
@@ -89,10 +95,10 @@
 			   <!-- <input type="checkbox" ng-model="multiple">upload multiple file -->
 				 <!-- <div class="button btn btn-primary" ngf-select ngf-change="upload($files)">Upload on file change</div> -->
 				  <!-- <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true" accept="image/*">Select File</div> -->
-	
+<!--
 
 					<input type="file" name="image" ng-model="image" onchange="angular.element(this).scope().uploadFile(event)" class="imageInput" check-file-upload-state>
-					<button class="btn btn-danger deleteFile" ng-click="deleteFile()" disabled>delete</button>
+					<button class="btn btn-danger deleteFile" ng-click="deleteFile()" disabled>delete</button> -->
 
 
 

@@ -16,3 +16,4 @@ accounts-password
 cfs:standard-packages
 cfs:filesystem
 angular:angular-sanitize
+summernote:summernote
