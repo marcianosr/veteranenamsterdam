@@ -4,40 +4,46 @@
 </div>
 
 <div class="container">
+	<h1 class="jumbotron">Nieuws</h1>
 	<div class="row">
+
 		<section class="no-posts col-xs-10" ng-if="!posts.length">
 			<h1>Geen berichten</h1>
 		</section>
 
 		<section class="blog-list col-xs-8" ng-repeat="post in posts">
 
-			<div class="posts col-xs-8">
+			<div class="posts col-xs-12">
+				<div class="row">
+					<aside class="information col-xs-2">
+							<time>{{ post.date }}</time>
+							<div class="user">
+								<span class="username">Door: {{post.author}}</span>
+							</div>
+					</aside>
 
-				<aside class="information col-xs-2">
-						<time>{{ post.date }}</time>
-						<div class="user">
-							<span class="username">{{post.author}}</span>
+					<article class="post col-xs-8">
+						<h1><a href="/blog/{{post.slug}}">{{ post.title }}</a></h1>
+						<p>{{ post.intro }}</p>
+						<div class="postImage" ng-if="post.imgUrl">
+							<img width="100%" height="100%" src="{{post.imgUrl}}" alt="{{post.title}}" />
 						</div>
-				</aside>
+						<div class="col-xs-8 padding-v margin-r-20">
+							<!-- <img class="img-responsive" src="assets/oldfriends.jpg" alt=""> -->
+							<!-- <img src="/cfs/files/images/{{post.image_id}}/images?store=images" alt=""> -->
 
-				<article class="post col-xs-8">
-					<h1><a href="/blog/{{post.title}}">{{ post.title }}</a></h1>
-					<p>{{ post.intro }}</p>
-					<div class="col-xs-8 padding-v margin-r-20">
-						<!-- <img class="img-responsive" src="assets/oldfriends.jpg" alt=""> -->
-						<!-- <img src="/cfs/files/images/{{post.image_id}}/images?store=images" alt=""> -->
-
-					</div>
-				</article>
+						</div>
+					</article>
 
 				<!-- <meteor-include src="imageView"></meteor-include> -->
 
-				<a ng-if="userId" href="/blog/{{post.title}}/edit">Wijzig bericht</a>
+				<a ng-if="userId" href="/blog/{{post.slug}}/edit">Wijzig bericht</a>
+				</div>
 			</div>
 
 		</section>
 
-		<div ng-include="'partials/sponsors.ng.html'"></div>
+		<!-- <div ng-include="'partials/sponsors.ng.html'"></div> -->
 
 	</div>
 </div>

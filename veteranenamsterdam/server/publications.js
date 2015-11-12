@@ -1,5 +1,5 @@
 Meteor.publish('posts', function() {
-  return Posts.find({}, { reactive: false });
+  return Posts.find({}, { reactive: false, sort: { datetime: -1} });
 });
 
 
@@ -16,6 +16,6 @@ Meteor.publish('users', function() {
   });
 });
 
-Meteor.publish('images', function() {
-    return Images.find({});
-  });
+// Meteor.publish('images', function() {
+//     return Images.find({});
+//   });

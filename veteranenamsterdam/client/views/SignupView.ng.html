@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div>
+        <section class="login col-xs-12">
+          <h1>Aanmelden</h1>
+          <div ng-if="serverError" class="alert alert-danger">
+            <ul>
+              <li>  {{serverError}} </li>
+            </ul>
+          </div>
+          <div ng-if="errors.length" class="alert alert-danger">
+    				<strong>De volgende foutmelding(en) zijn opgetreden: </strong>
+
+    				<ul ng-repeat="error in errors">
+    					<li>{{error}}</li>
+    				</ul>
+    			</div>
+          <form>
+            <form>
+              <input type="text" class="form-control" name="username" placeholder="Gebruikersnaam">
+              <input type="text" class="form-control" name="email" placeholder="Email">
+              <input type="password" class="form-control" name="password" placeholder="Wachtwoord">
+              <button type="submit" ng-click="validateNewUser()" name="register" class="btn btn-primary">Registreren</button>
+            </form>
+          </form>
+        </section>
+    </div>
+  </div>
+</div>

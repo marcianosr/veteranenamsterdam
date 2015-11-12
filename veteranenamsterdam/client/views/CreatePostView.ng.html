@@ -29,7 +29,7 @@
 			</form> -->
 			<input name="title" class="form-control" type="text" placeholder="Titel">
 			<input name="intro" class="form-control" type="text" placeholder="Intro">
-			<div id="summernote">Hello Summernote</div>
+			<div id="summernote" summernote></div>
 			<input type="submit" value="Submit" ng-click="createPost()" class="btn btn-primary" />
 
 
@@ -57,6 +57,7 @@
 			<div ng-if="errors" class="alert alert-danger">
 				<strong>De volgende foutmelding(en) zijn opgetreden: </strong>
 
+
 				<ul ng-repeat="error in errors">
 					<li>{{error}}</li>
 				</ul>
@@ -66,7 +67,8 @@
 
 				<input name="title" class="form-control" type="text" placeholder="Titel" value="{{post.title}}">
 				<input name="intro" class="form-control" type="text" placeholder="Intro" value="{{post.intro}}">
-				<div id="summernote"></div>
+				<div id="summernote" ng-bind-html="message" summernote>{{message}}</div>
+
 				<input type="submit"  value="Submit" ng-click="editPost()" class="btn btn-primary" />
 
 				<!-- <div ng-repeat="message in posts.message" class="{{$index}}">

@@ -12,7 +12,7 @@ angular.module('VA')
 
 
 
- 
+
 
    $scope.empty = true;
 
@@ -34,6 +34,9 @@ angular.module('VA')
 					case "User not found":
 						$scope.errors.push('Sorry, we hebben de zojuist ingetypte gebruiker niet kunnen vinden...');
 					break;
+          case "Incorrect password":
+            $scope.errors.push('Het wachtwoord is niet juist.');
+          break;
 					case "Match failed":
 						$scope.errors.push('De gebruikersnaam en/of wachtwoord is niet ingevuld.')
 					break;
@@ -41,7 +44,7 @@ angular.module('VA')
 				}
 
 				// if (user.username.length < 1 || user.password.length < 1) {
-					
+
 				// 	//reason = "Match failed";
 
 
@@ -81,10 +84,8 @@ angular.module('VA')
 
          Meteor.loginWithPassword(user.username, user.password, function(err){
                if (err) {
-
                   console.log(err)
-				  $scope.validate(user, err.reason)
-
+				          $scope.validate(user, err.reason)
                }
                else {
                   $rootScope.userId = Meteor.userId();

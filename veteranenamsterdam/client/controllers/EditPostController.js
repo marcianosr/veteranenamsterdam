@@ -25,19 +25,16 @@ angular.module('VA')
 
   $scope.posts = PostService.getAllPosts().then(function(posts) {
     angular.forEach(posts, function(key, value){
+      console.log(title)
+      console.log(key.slug)
+      if(title === key.slug) {
+        console.log(posts)
+        $scope.post = key;
+        $scope.message = $('#summernote').code($scope.post.message);
+        console.log($scope.post)
+        console.log(key)
+      }
 
-          console.log(posts)
-          $scope.post = key;
-          $scope.message = $sce.trustAsHtml($scope.post.message);
-
-          console.log($scope.post)
-          console.log(key)
-          $(document).ready(function() {
-            $('#summernote').summernote();
-            $('#summernote').code($scope.post.message);
-
-
-          });
 
 
     });
@@ -60,6 +57,7 @@ angular.module('VA')
 
   $scope.editPost = function() {
 
+      $scope.errors = [];
       $scope.newPost = {
           title: $('input[name="title"]').val(),
           intro: $('input[name="intro"]').val(),
@@ -69,9 +67,38 @@ angular.module('VA')
       };
       console.log($scope.post._id)
 
-      Posts.update({ _id: $scope.post._id }, { $set: { title: $scope.newPost.title, intro: $scope.newPost.intro, message: $scope.newPost.message } } )
+      if($scope.newPost.title.length < 1) {
 
-      $location.path('/blog')
+        $scope.errors.push('Het titel veld is leeg.');
+      }
+
+
+      if($scope.newPost.intro.length < 1) {
+
+        $scope.errors.push('Het intro veld is leeg.');
+
+      }
+
+      if($('.note-editable.panel-body').text().length < 1) {
+
+        $scope.errors.push('Het bericht veld is leeg.');
+
+      }
+
+      if($scope.errors.length != 0) {
+
+        $scope.errorForm = true;
+        return false;
+
+      }
+      else {
+        Posts.update({ _id: $scope.post._id }, { $set: { title: $scope.newPost.title, intro: $scope.newPost.intro, message: $scope.newPost.message } } )
+
+        $location.path('/blog')
+
+      }
+
+
 
   }
 

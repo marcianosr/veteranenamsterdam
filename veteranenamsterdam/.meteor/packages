@@ -4,16 +4,33 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 urigo:angular
 momentjs:moment
 twbs:bootstrap
 urigo:angular-ui-router
+urigo:angular-blaze-template
 less
 fortawesome:fontawesome
 accounts-base
 accounts-password
-cfs:standard-packages
-cfs:filesystem
+# cfs:standard-packages
+# cfs:filesystem
 angular:angular-sanitize
 summernote:summernote
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+rzymek:moment-locale-nl
+rzymek:fullcalendar
+meteortoys:allthings

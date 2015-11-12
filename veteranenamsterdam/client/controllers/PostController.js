@@ -12,11 +12,13 @@ angular.module('VA')
 		angular.forEach(posts, function(key, value){
 
 
-			if (title === key.title) {
+			if (title === key.slug) {
 					$scope.post = key;
 					$scope.message = $sce.trustAsHtml($scope.post.message);
 
 					console.log($scope.post)
+
+          
 			}
 
 		});

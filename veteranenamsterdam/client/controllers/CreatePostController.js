@@ -8,19 +8,6 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		$scope.post = {};
 
-		$scope.bbcode = {
-
-			bold: /(\[b\])(.*?)(\[\/b\])/,
-			italic: /(\[i\])(.*?)(\[\/i\])/,
-			linebreak: /\n/g,
-		};
-		$scope.html = {
-
-			bold: "<strong>$2</strong>",
-			italic: "<i>$2</i>",
-			linebreak: "<br>"
-		}
-
 		$scope.createPost = function() {
 
 			var post = $scope.validate();
@@ -49,10 +36,13 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		   	$scope.post = {
 		    	  title: $('input[name="title"]').val(),
+						slug: $('input[name="title"]').val().split(" ").join("-").toLowerCase(),
 		    	  intro: $('input[name="intro"]').val(),
 				  message: $('#summernote').code(),
-				  date: new Date(),
-				  author: $rootScope.currentUser.emails[0].address,
+				  date: moment().locale('nl').format("ll"),
+					datetime: moment().locale('nl').format('MMMM Do YYYY, h:mm:ss a'),
+				  // author: $rootScope.currentUser.emails[0].address,
+					author: $rootScope.currentUser.username
 
 			};
 
@@ -61,18 +51,21 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 				$scope.errors.push('Het titel veld is leeg.');
 			}
+			console.log($('.note-editable.panel-body').html())
 
-			if($scope.post.message.length < 1) {
-
-				$scope.errors.push('Het bericht veld is leeg.');
-
-			}
 
 			if($scope.post.intro.length < 1) {
 
 				$scope.errors.push('Het intro veld is leeg.');
 
 			}
+
+			if($('.note-editable.panel-body').text().length < 1) {
+
+				$scope.errors.push('Het bericht veld is leeg.');
+
+			}
+
 
 			if($scope.errors.length != 0) {
 
@@ -90,8 +83,5 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 
 		}
 
-	$(document).ready(function() {
-	  $('#summernote').summernote({ height: 400});
-	});
 
 }]);

@@ -118,6 +118,13 @@ angular.module('VA',[
 				templateUrl: 'client/views/LoginView.ng.html'
 
 			})
+      .state('/registreren', {
+
+        url: '/registreren',
+        controller: 'SignupController',
+        templateUrl: 'client/views/SignupView.ng.html'
+
+      })
 			.state('/404', {
 
 				url: '/404',
@@ -153,4 +160,4 @@ angular.module('VA',[
 
 
 Meteor.subscribe('users');
-Meteor.subscribe('images');
+// Meteor.subscribe('images');
