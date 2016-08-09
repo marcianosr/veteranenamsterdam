@@ -8,7 +8,6 @@ urigo:angular
 momentjs:moment
 twbs:bootstrap
 urigo:angular-ui-router
-urigo:angular-blaze-template
 less
 fortawesome:fontawesome
 accounts-base
@@ -21,7 +20,7 @@ standard-minifiers
 meteor-base
 mobile-experience
 mongo
-blaze-html-templates
+# blaze-html-templates
 session
 jquery
 tracker
@@ -32,5 +31,6 @@ ejson
 spacebars
 check
 rzymek:moment-locale-nl
-rzymek:fullcalendar
+# rzymek:fullcalendar
 meteortoys:allthings
+# rzymek:fullcalendar

@@ -1,4 +1,7 @@
 
+
+
+
 // if (Posts.find().count() === 0) {
 //   Posts.insert({
 //     title: 'Vergadering DC BMW in de Veldpost',
@@ -43,5 +46,3 @@
 //
 //
 // });
-
-

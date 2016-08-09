@@ -1,5 +1,5 @@
 Meteor.publish('posts', function() {
-  return Posts.find({}, { reactive: false, sort: { datetime: -1} });
+  return Posts.find({}, { sort: { datetime: -1 } });
 });
 
 

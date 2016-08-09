@@ -1,5 +1,8 @@
 console.log('test main ')
 
+
+
+
 angular.module('VA',[
 
     'angular-meteor',
@@ -148,6 +151,7 @@ angular.module('VA',[
 		$rootScope.userId = LoginService.getLoginStatus();
 
 		console.log('logged or not ', $rootScope.userId)
+
 
 
 	});

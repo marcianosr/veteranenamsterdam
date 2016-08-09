@@ -5,7 +5,10 @@ angular.module('VA')
   console.log('BlogController Init');
 
   $scope.posts = PostService.getAllPosts().then(function(posts) {
+      
       $scope.posts = posts;
+
+
 
       angular.forEach($scope.posts, function(key, value){
 

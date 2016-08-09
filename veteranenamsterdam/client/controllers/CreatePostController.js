@@ -40,7 +40,8 @@ angular.module("VA").controller('CreatePostController', ['$rootScope', '$scope',
 		    	  intro: $('input[name="intro"]').val(),
 				  message: $('#summernote').code(),
 				  date: moment().locale('nl').format("ll"),
-					datetime: moment().locale('nl').format('MMMM Do YYYY, h:mm:ss a'),
+					datetime: new Date(),
+
 				  // author: $rootScope.currentUser.emails[0].address,
 					author: $rootScope.currentUser.username
 

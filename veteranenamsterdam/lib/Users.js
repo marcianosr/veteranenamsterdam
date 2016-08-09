@@ -85,13 +85,3 @@ if(Meteor.isServer) {
     });
 
 }
-
-// Accounts.createUser({
-//                            username: 'Marciano',
-//                            email : 'marciano_schildmeijer@live.nl',
-//                            password : 'kazooie',
-//                            profile  : {
-//                                //publicly visible fields like firstname goes here
-//                            }
-//
-//    });
