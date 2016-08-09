@@ -1,4 +1,4 @@
-moment.locale('nl'); 
+moment.locale('nl');
 
 
 moment.locale('nl', {
@@ -7,5 +7,3 @@ moment.locale('nl', {
         "Augustus", "September", "Oktober", "November", "December"
     ]
 });
-
-

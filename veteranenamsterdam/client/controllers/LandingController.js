@@ -3,5 +3,8 @@ angular.module('VA')
 
 	
   console.log('LandingController Init');
+
+
+
 }]);
 

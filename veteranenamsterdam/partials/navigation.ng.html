@@ -1,6 +1,7 @@
-<nav class="navbar">
-	
-		<a href="" class="navbar-brand">
+
+<nav class="navbar" ng-controller="NavigationController">
+
+		<a ui-sref="/" class="navbar-brand">
 			<img class="logo" src="assets/logo11-trans.png" alt="SVA">
 		</a>
 		<ul class="list-inline top-nav">
@@ -8,13 +9,20 @@
 			<li><a ui-sref="/blog">blog</a></li>
 			<li><a ui-sref="/overons">over ons</a>
 				<ul class="sub-nav">
-					<li><a ui-sref="/veteranen">veteranen</a></li>
+					<!-- <li><a ui-sref="/veteranen">veteranen</a></li> -->
+					<li><a ui-sref="/donaties">donaties</a></li>
 					<li><a ui-sref="/de-veldpost">de veldpost</a></li>
 				</ul>
 			</li>
 			<li><a ui-sref="/activiteiten">activiteiten</a></li>
-			<li><a ui-sref="/donaties">donaties</a></li>
 			<li><a ui-sref="/contact">contact</a></li>
+
+
+
+			<li ng-if="!userId"><a ui-sref="/inloggen">inloggen</a></li>
+			<li ng-if="userId" ng-click="logout()"><a >uitloggen</a></li>
+
+
 		</ul>
 
-</nav>	
+</nav>

@@ -1,10 +1,9 @@
-node_modules/
-public/
-test/
+
 
 Gruntfile.js
 /bower.json
 package.json
 .bowerrc
 
-va-meteor/.meteor
+va-meteor/
+

@@ -1,0 +1,5 @@
+db_backup
+mup.json
+settings.json
+.DS_Store
+server/database_backup

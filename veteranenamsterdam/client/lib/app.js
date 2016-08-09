@@ -1,92 +1,167 @@
 console.log('test main ')
 
+
+
+
 angular.module('VA',[
 
     'angular-meteor',
     'ui.router',
+    'ngSanitize'
+
 
 
 
 ])
-// config func runs before anything is ready (before all services are ready) Providers are accessible. 
+// config func runs before anything is ready (before all services are ready) Providers are accessible.
 .config([
 
 	'$stateProvider',
+	'$urlRouterProvider',
 	'$locationProvider',
 
 
-	 function($stateProvider, $locationProvider) { 
+	 function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
-		console.log($stateProvider,  $locationProvider)
+		console.log($stateProvider)
+		console.log($urlRouterProvider)
 
 		$stateProvider
-			.state('/', { 
+			.state('/', {
 
-				url: '/', 
+				url: '/',
 				controller: 'LandingController',
 				templateUrl: 'client/views/LandingView.ng.html'
-				
-			})
-			.state('/overons', { 
 
-				url: '/overons', 
+			})
+			.state('/overons', {
+
+				url: '/overons',
 				controller: 'AboutController',
 				templateUrl: 'client/views/AboutView.ng.html'
 
 			})
-			.state('/blog', { 
 
-				url: '/blog', 
+			.state('/blog', {
+
+				url: '/blog',
 				controller: 'BlogController',
 				templateUrl: 'client/views/BlogView.ng.html'
 
 			})
-			.state('/veteranen', { 
+			.state('/blog/:postId', {
 
-				url: '/de-veldpost', 
-				controller: 'VeteranenController',
-				templateUrl: 'client/views/VeteranenView.ng.html'
+				url: '/blog/:postId',
+				controller: 'PostController',
+				templateUrl: 'client/views/PostView.ng.html'
 
 			})
-			.state('/de-veldpost', { 
+			.state('/blog/:postId/edit', {
 
-				url: '/de-veldpost', 
+				url: '/blog/:postId/edit',
+				controller: 'EditPostController',
+				templateUrl: 'client/views/CreatePostView.ng.html'
+
+			})
+			// .state('/veteranen', {
+
+
+			// 	url: '/de-veldpost',
+			// 	controller: 'VeteranenController',
+			// 	templateUrl: 'client/views/VeteranenView.ng.html'
+
+			// })
+			.state('/de-veldpost', {
+
+				url: '/de-veldpost',
 				controller: 'VeldpostController',
 				templateUrl: 'client/views/VeldpostView.ng.html'
 
 			})
-			.state('/activiteiten', { 
+			.state('/activiteiten', {
 
-				url: '/activiteiten', 
+				url: '/activiteiten',
 				controller: 'ActivitiesController',
 				templateUrl: 'client/views/ActivitiesView.ng.html'
 
 			})
-			.state('/donaties', { 
+			.state('/donaties', {
 
-				url: '/donaties', 
+				url: '/donaties',
 				controller: 'DonationsController',
 				templateUrl: 'client/views/DonationsView.ng.html'
 
 			})
-			.state('/contact', { 
+			.state('/contact', {
 
-				url: '/contact', 
+				url: '/contact',
 				controller: 'ContactController',
 				templateUrl: 'client/views/ContactView.ng.html'
 
-			});
+			})
+			.state('/maak-bericht', {
 
-		// $locationProvider.html5Mode(true);
-}]).run(['$rootScope', function($rootScope) {
+				url: '/maak-bericht',
+				controller: 'CreatePostController',
+				templateUrl: 'client/views/CreatePostView.ng.html'
+
+			})
+			.state('/upload', {
+
+				url: '/upload',
+				controller: 'UploadController',
+				template: '<p> upload </p>'
+
+			})
+			.state('/inloggen', {
+
+				url: '/inloggen',
+				controller: 'LoginController',
+				templateUrl: 'client/views/LoginView.ng.html'
+
+			})
+      .state('/registreren', {
+
+        url: '/registreren',
+        controller: 'SignupController',
+        templateUrl: 'client/views/SignupView.ng.html'
+
+      })
+			.state('/404', {
+
+				url: '/404',
+				controller: 'ErrorController',
+				templateUrl: 'client/views/ErrorView.ng.html'
+
+			})
+
+			$urlRouterProvider.otherwise('/404');
+
+
+		 $locationProvider.html5Mode(true);
+}]).run(['$rootScope', 'LoginService', function($rootScope, LoginService) {
 
 
 
 	console.log('runn angular app')
-}])
 
-Meteor.subscribe('posts');
+	Deps.autorun(function() {
+
+		$rootScope.userId = LoginService.getLoginStatus();
+
+		console.log('logged or not ', $rootScope.userId)
 
 
 
+	});
+
+
+
+
+
+}]);
+
+
+Meteor.subscribe('users');
+// Meteor.subscribe('images');

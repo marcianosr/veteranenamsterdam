@@ -1,24 +1,33 @@
 
 <head>
 	<base href="/">
+	<title>Stichting Veteranen Amsterdam</title>
+	<!-- <link rel="shortcut icon" type="image/png" href="/../public/assets/favicon.png"/> -->
+	 <link rel="shortcut icon" type="image/png" href="/public/assets/favicon.png"/>
+<!--	<link rel="shortcut icon" type="image/png" href="/favicon.png"/> -->
 </head>
 <body ng-app="VA">
+	<div check-login>
 
-<div class="container" ng-include="'partials/navigation.ng.html'"></div>
+		<div ng-controller="NavigationController">
+			<div ng-if="userId" ng-include="'partials/admin-navigation.ng.html'"></div>
+		</div>
+		<div class="container" ng-include="'partials/navigation.ng.html'"></div>
 
-<div class="flag-container">
-	<div class="red"></div>
-	<div class="white"></div>
-	<div class="blue"></div>
-</div>
+		<div class="flag-container">
+			<div class="red"></div>
+			<div class="white"></div>
+			<div class="blue"></div>
+		</div>
 
 
 
-<main class="main-content" ui-view scroll-to-top></main>
+		<main class="main-content" ui-view scroll-to-top></main>
 
-<footer ng-include="'partials/footer.ng.html'"></footer>
+		<footer ng-include="'partials/footer.ng.html'"></footer>
 
-<a ui-sref="/overons">over ons</a>
+	</div>
+
 
 
 </body>
